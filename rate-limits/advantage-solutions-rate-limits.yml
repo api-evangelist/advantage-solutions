@@ -1,0 +1,20 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  live response headers from https://youradv.com/wp-json/wp/v2/advantage360-reports?per_page=1
+  and https://mrktblog.com/wp-json/wp/v2/posts?per_page=1, plus a search of the
+  Advantage Solutions site for any published limits
+limit_count: 0
+limits: []
+response_headers: []
+note: >-
+  Advantage Solutions publishes no rate limits and returns no rate-limit headers.
+  No RateLimit-*, X-RateLimit-* or Retry-After header appeared on any observed
+  response. The WP Engine cache plugin advertises a route named
+  /wpe/cache-plugin/v1/rate_limit_status in the discovery document, but it answers
+  404 rest_no_route to an anonymous caller, so no limit is readable. Cloudflare sits
+  in front of both hosts and may apply undisclosed edge protection.
+evidence:
+  - {url: 'https://youradv.com/wp-json/wp/v2/advantage360-reports?per_page=1', status: 200, rate_limit_headers: none}
+  - {url: 'https://mrktblog.com/wp-json/wp/v2/posts?per_page=1', status: 200, rate_limit_headers: none}
+  - {url: 'https://youradv.com/wp-json/wpe/cache-plugin/v1/rate_limit_status', status: 404, code: rest_no_route}

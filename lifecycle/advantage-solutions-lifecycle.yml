@@ -1,0 +1,33 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  probes of status.advantagesolutions.net, status.youradv.com, youradv.com/security
+  and the youradv.com page sitemap; plus the wp/v2 namespace advertised at
+  https://youradv.com/wp-json/
+versioning:
+  scheme: namespace-path
+  current: wp/v2
+  docs: https://developer.wordpress.org/rest-api/
+  note: >-
+    Versioning is inherited from WordPress core, not set by Advantage Solutions.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No deprecation or sunset policy is published; no Deprecation pointer is emitted.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  note: >-
+    No status page exists. status.advantagesolutions.net and status.youradv.com both
+    fail to resolve (curl exit 6 / HTTP 000). No StatusPage pointer is emitted.
+support:
+  url: https://youradv.com/contact/
+  status: 200
+deprecated_operations: []
+evidence:
+  - {url: 'https://status.advantagesolutions.net', status: 000, note: DNS does not resolve}
+  - {url: 'https://status.youradv.com', status: 000, note: DNS does not resolve}
+  - {url: 'https://youradv.com/security', status: 404}
+  - {url: 'https://youradv.com/contact/', status: 200}

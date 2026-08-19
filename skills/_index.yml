@@ -1,0 +1,15 @@
+generated: '2026-08-13'
+method: generated
+source: openapi/ specs derived from the Advantage Solutions WordPress REST discovery documents
+skills:
+  - file: advantage-solutions-read-advantage360-research.md
+    name: Read Advantage360 research from Advantage Solutions
+    api: openapi/advantage-solutions-youradv-content-openapi.yml
+    operations: [getWpV2Advantage360reports, getWpV2Advantage360reportsByid, getWpV2Advantage360category, getWpV2Solution]
+  - file: advantage-solutions-harvest-mrkt-blog.md
+    name: Harvest the MRKT blog from Advantage Solutions
+    api: openapi/advantage-solutions-mrktblog-content-openapi.yml
+    operations: [getWpV2Posts, getWpV2PostsByid, getWpV2Categories, getWpV2Search]
+    also_uses:
+      - api: openapi/advantage-solutions-youradv-content-openapi.yml
+        operations: [getWpV2Mrktblogposts, getWpV2Mrktblogcategory]

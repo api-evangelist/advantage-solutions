@@ -1,0 +1,33 @@
+generated: '2026-08-13'
+method: probed
+source: live GET of each /.well-known/ path on every host in apis.yml
+note: >-
+  No /.well-known/ document is served on any Advantage Solutions host. youradv.com
+  (the corporate site, WP Engine + Cloudflare) returns a real 404 on every path.
+  www.advantagesolutions.net returns HTTP 200 for EVERY path probed, but the body
+  is the WordPress site's HTML homepage shell, not a document - a soft-404, recorded
+  here as a miss. No WellKnown or SecurityTxt pointer is emitted for this repo.
+hosts:
+  - host: https://youradv.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+  - host: https://www.advantagesolutions.net
+    soft_404: true
+    documents:
+      - {path: /.well-known/security.txt, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/api-catalog, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+      - {path: /.well-known/agent.json, status: 200, content_type: text/html, verdict: soft-404-html-shell}
+  - host: https://mrktblog.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+documents_found: 0

@@ -1,0 +1,40 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/advantage-solutions-youradv-content-openapi.yml plus error bodies
+  observed live on https://youradv.com/wp-json/
+format: wordpress-rest-error
+rfc9457: false
+envelope:
+  media_type: application/json
+  shape:
+    code: string
+    message: string
+    data:
+      status: integer
+  note: >-
+    Advantage Solutions publishes no error reference. The envelope and the two codes
+    below were read off live responses from their own host; the remaining WordPress
+    core codes are not listed here because they were not observed on this deployment.
+problems:
+  - status: 404
+    code: rest_no_route
+    title: No route was found matching the URL and request method
+    observed: true
+    evidence:
+      url: https://youradv.com/wp-json/wp/v2/users?per_page=1
+      body: '{"code":"rest_no_route","message":"No route was found matching the URL and request method.","data":{"status":404}}'
+    remediation: >-
+      Read the route list from https://youradv.com/wp-json/ before calling. Note that
+      /wp/v2/users is advertised in the discovery document only as /wp/v2/users/me;
+      the users collection is disabled on this deployment.
+  - status: 401
+    code: rest_forbidden
+    title: Sorry, you are not allowed to do that
+    observed: true
+    evidence:
+      url: https://youradv.com/wp-json/wp-abilities/v1/abilities
+      body: '{"code":"rest_forbidden","message":"Sorry, you are not allowed to do that.","data":{"status":401}}'
+    remediation: >-
+      Authenticate with a WordPress Application Password (HTTP Basic). Anonymous
+      callers can read published content only.

@@ -1,0 +1,16 @@
+generated: '2026-08-13'
+method: derived
+source: openapi/advantage-solutions-mrktblog-content-openapi.yml, openapi/advantage-solutions-youradv-content-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: applicationPassword
+  type: http
+  scheme: basic
+  description: WordPress Application Passwords (HTTP Basic). The discovery document advertises
+    the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read
+    operations on published content are anonymous.
+  sources:
+  - openapi/advantage-solutions-mrktblog-content-openapi.yml
+  - openapi/advantage-solutions-youradv-content-openapi.yml

@@ -1,0 +1,55 @@
+generated: '2026-08-13'
+method: derived
+status: candidate
+source: openapi/advantage-solutions-youradv-content-openapi.yml
+note: >-
+  Advantage Solutions ships no MCP server. Searches of the company's site, npm and
+  the MCP registries returned nothing first-party. The tools below are a CANDIDATE
+  set derived from read operations on the publicly readable WordPress content API;
+  nobody serves them today.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: derived
+adjacent_agent_surface:
+  namespace: wp-abilities/v1
+  detail: >-
+    Both youradv.com and mrktblog.com advertise the WordPress Abilities API namespace
+    (wp-abilities/v1) in their /wp-json/ discovery documents - the WordPress-native,
+    MCP-adjacent capability surface. The namespace index is readable, but the
+    abilities list itself is auth-gated.
+  evidence:
+    - {url: 'https://youradv.com/wp-json/wp-abilities/v1', status: 200}
+    - {url: 'https://youradv.com/wp-json/wp-abilities/v1/abilities', status: 401, code: rest_forbidden}
+server:
+  name: advantage-solutions-content
+  transport: null
+  url: null
+tools:
+  - name: list_advantage360_reports
+    description: List Advantage360 research reports published by Advantage Solutions.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Advantage360reports
+  - name: get_advantage360_report
+    description: Retrieve a single Advantage360 report by id.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Advantage360reportsByid
+  - name: list_solutions
+    description: List the service lines Advantage Solutions publishes on youradv.com.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Solution
+  - name: list_mrktblog_posts
+    description: List MRKT blog posts syndicated on the corporate site.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Mrktblogposts
+  - name: list_team_members
+    description: List published team members.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Teammember
+  - name: list_events
+    description: List published events.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Event
+  - name: search_site
+    description: Search across published content types on youradv.com.
+    source_operation: openapi/advantage-solutions-youradv-content-openapi.yml#getWpV2Search
+  - name: list_mrkt_posts
+    description: List posts on mrktblog.com, the MRKT publication.
+    source_operation: openapi/advantage-solutions-mrktblog-content-openapi.yml#getWpV2Posts

@@ -1,0 +1,99 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/advantage-solutions-youradv-content-openapi.yml (derived from
+  https://youradv.com/wp-json/) plus response headers observed live on
+  https://youradv.com/wp-json/wp/v2/advantage360-reports?per_page=1
+docs: https://developer.wordpress.org/rest-api/using-the-rest-api/
+note: >-
+  Advantage Solutions publishes no API conventions of its own. Everything recorded
+  here is the stock WordPress REST API contract as served by their hosts, and was
+  confirmed against live responses rather than assumed from the WordPress docs.
+
+authentication:
+  style: anonymous-read
+  detail: >-
+    Read operations on published content require no credentials (verified live).
+    Write operations use WordPress Application Passwords over HTTP Basic; the
+    discovery document advertises the authorization endpoint at
+    https://youradv.com/wp-admin/authorize-application.php.
+  artifact: authentication/advantage-solutions-authentication.yml
+
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency key header or parameter is advertised anywhere in the discovery
+    document. WordPress REST writes are not idempotent-by-key. No Idempotency
+    pointer is emitted for this repo.
+
+pagination:
+  style: page-number
+  params:
+    - {name: page, default: 1, description: Current page of the collection}
+    - {name: per_page, default: 10, max: 100, description: Maximum number of items returned per page}
+    - {name: offset, description: Offset the result set by a specific number of items}
+  response_headers:
+    - {name: X-WP-Total, description: Total number of items in the collection, observed: true}
+    - {name: X-WP-TotalPages, description: Total number of pages available, observed: true}
+    - {name: Link, description: 'RFC 8288 rel="next" / rel="prev" pagination links', observed: true}
+  observed_example:
+    url: https://youradv.com/wp-json/wp/v2/advantage360-reports?per_page=1
+    x_wp_total: 52
+    x_wp_totalpages: 52
+
+sparse_fields:
+  supported: true
+  param: _fields
+  detail: Comma-separated list of fields to return; standard WordPress REST behaviour.
+
+embedding:
+  supported: true
+  param: _embed
+  detail: Expands linked resources (author, featured media, terms) inline via the _links graph.
+
+context:
+  param: context
+  values: [view, embed, edit]
+  default: view
+  detail: >-
+    Declared on nearly every route in the discovery document; determines which fields
+    are present in the response. `edit` requires an authenticated capability.
+
+filtering_and_ordering:
+  params: [search, slug, status, order, orderby, include, exclude, after, before, modified_after, modified_before]
+  detail: Copied from the args advertised on the collection routes in the discovery document.
+
+versioning:
+  scheme: namespace-path
+  current: wp/v2
+  detail: >-
+    Version lives in the URL namespace (/wp-json/wp/v2/). Additional namespaces
+    advertised on youradv.com - oembed/1.0, yoast/v1, wp-site-health/v1,
+    wp-block-editor/v1, wp-abilities/v1, wpe/cache-plugin/v1, wpe_sign_on_plugin/v1.
+  artifact: lifecycle/advantage-solutions-lifecycle.yml
+
+error_envelope:
+  shape: '{code, message, data: {status}}'
+  media_type: application/json
+  rfc9457: false
+  observed:
+    - {url: 'https://youradv.com/wp-json/wp/v2/users?per_page=1', status: 404, code: rest_no_route}
+    - {url: 'https://youradv.com/wp-json/wp-abilities/v1/abilities', status: 401, code: rest_forbidden}
+  artifact: errors/advantage-solutions-problem-types.yml
+
+rate_limit_signaling:
+  headers: []
+  detail: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was returned on any observed
+    response. The WP Engine cache plugin advertises a route named
+    /wpe/cache-plugin/v1/rate_limit_status, but it returns 404 rest_no_route
+    anonymously, so no limit is readable.
+  artifact: rate-limits/advantage-solutions-rate-limits.yml
+
+caching:
+  headers_observed: [cache-control, last-modified, x-cache, cf-cache-status, x-cacheable]
+  detail: Cloudflare in front of WP Engine; responses are cacheable (max-age=600, must-revalidate observed).
+
+request_tracing:
+  request_id_header: null
+  detail: No correlation/request-id header is returned.

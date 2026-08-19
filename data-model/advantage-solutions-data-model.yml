@@ -1,0 +1,99 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/advantage-solutions-youradv-content-openapi.yml and
+  openapi/advantage-solutions-mrktblog-content-openapi.yml, plus the _links graph
+  and route args in https://youradv.com/wp-json/
+note: >-
+  Entity graph of the Advantage Solutions content API. The custom entities
+  (advantage360-report, mrktblog-post, solution, team-member, director, event,
+  review, blog-author) are the company's own; the rest are WordPress core objects.
+  Item counts were read live from X-WP-Total on an anonymous collection request.
+identifiers:
+  scheme: integer
+  detail: Every object is keyed by a positive integer `id`; a URL-safe `slug` is a secondary key.
+entities:
+  - name: advantage360-report
+    collection: /wp/v2/advantage360-reports
+    host: youradv.com
+    items: 52
+    description: Advantage360 shopper and market research reports.
+    relationships:
+      - {type: has_many, target: advantage360-category, via: advantage360-category}
+      - {type: has_one, target: media, via: featured_media}
+      - {type: has_one, target: user, via: author}
+  - name: advantage360-category
+    collection: /wp/v2/advantage360-category
+    host: youradv.com
+    description: Taxonomy grouping Advantage360 reports.
+    relationships:
+      - {type: belongs_to, target: advantage360-category, via: parent}
+  - name: mrktblog-post
+    collection: /wp/v2/mrktblog-posts
+    host: youradv.com
+    items: 279
+    description: MRKT blog posts surfaced on the corporate site.
+    relationships:
+      - {type: has_many, target: mrktblog-category, via: mrktblog-category}
+      - {type: has_one, target: blog-author, via: author}
+      - {type: has_one, target: media, via: featured_media}
+  - name: mrktblog-category
+    collection: /wp/v2/mrktblog-category
+    host: youradv.com
+    description: Taxonomy grouping MRKT blog posts.
+  - name: solution
+    collection: /wp/v2/solution
+    host: youradv.com
+    items: 5
+    description: The service lines Advantage Solutions sells.
+  - name: team-member
+    collection: /wp/v2/team-member
+    host: youradv.com
+    description: Published team member profiles.
+  - name: director
+    collection: /wp/v2/director
+    host: youradv.com
+    description: Board of directors profiles.
+  - name: event
+    collection: /wp/v2/event
+    host: youradv.com
+    description: Company events.
+  - name: review
+    collection: /wp/v2/review
+    host: youradv.com
+    description: Published reviews / testimonials.
+  - name: blog-author
+    collection: /wp/v2/blog-author
+    host: youradv.com
+    description: Bylines used by MRKT blog posts.
+  - name: post
+    collection: /wp/v2/posts
+    host: mrktblog.com
+    items: 169
+    description: Standard WordPress posts on the MRKT publication site.
+    relationships:
+      - {type: has_many, target: category, via: categories}
+      - {type: has_many, target: tag, via: tags}
+      - {type: has_one, target: media, via: featured_media}
+  - name: page
+    collection: /wp/v2/pages
+    host: youradv.com
+    description: Standard WordPress pages.
+    relationships:
+      - {type: belongs_to, target: page, via: parent}
+  - name: media
+    collection: /wp/v2/media
+    description: Attachments referenced by featured_media.
+  - name: category
+    collection: /wp/v2/categories
+  - name: tag
+    collection: /wp/v2/tags
+relationship_conventions:
+  detail: >-
+    Relationships are expressed as integer id fields on the object and as HAL-style
+    `_links` entries; `?_embed=true` inlines author, featured media and terms.
+gaps:
+  - >-
+    /wp/v2/users is not routed on youradv.com (404 rest_no_route) even though
+    /wp/v2/users/me is advertised, so the author entity cannot be dereferenced
+    anonymously.
