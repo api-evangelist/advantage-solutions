@@ -37,7 +37,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/advantage-solutions/refs/heads/main/apis.yml
 created: '2026-05-04'
 modified: '2026-08-13'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: advantage-solutions:youradv-content
     name: Advantage Solutions Corporate Content API (WordPress REST)
