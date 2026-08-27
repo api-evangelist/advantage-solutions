@@ -3,14 +3,14 @@ kin_checks:
   slug: advantage-solutions
   schema_version: 0.15.1
   scored_at: '2026-08-27'
-  run_ts: 2026-08-27T103455
+  run_ts: 2026-08-27T140727
   note: Actionable checks only (missed + partial). earned/na are every other check
     in rubric/scoring-0.15.1.yml; counts below let you verify that.
   counts:
     total: 130
-    earned: 40
+    earned: 39
     partial: 7
-    missed: 59
+    missed: 60
     na: 24
   checks:
   - id: multiple_apis
@@ -28,6 +28,9 @@ kin_checks:
   - id: examples_present
     status: missed
   - id: components_reuse
+    status: missed
+    detail: 0 of 2 openapi documents pass
+  - id: security_schemes_defined
     status: missed
     detail: 0 of 2 openapi documents pass
   - id: webhooks_or_callbacks
