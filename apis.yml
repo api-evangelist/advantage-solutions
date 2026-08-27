@@ -39,63 +39,366 @@ created: '2026-05-04'
 modified: '2026-08-13'
 specificationVersion: '0.23'
 apis:
-  - aid: advantage-solutions:youradv-content
-    name: Advantage Solutions Corporate Content API (WordPress REST)
-    description: >-
-      The publicly readable content API of the Advantage Solutions corporate site.
-      youradv.com runs WordPress on WP Engine behind Cloudflare and serves the
-      standard REST API at /wp-json/, advertising 219 routes across eight namespaces.
-      Beyond WordPress core objects it exposes the company's own content types:
-      Advantage360 research reports, MRKT blog posts, solutions, events, team
-      members, board directors, reviews and blog authors. Read operations on
-      published content need no credentials and were verified live; writes require
-      a WordPress Application Password. This is a marketing-site CMS API, not a
-      product API - Advantage Solutions publishes no developer program.
-    humanURL: https://youradv.com/
-    baseURL: https://youradv.com/wp-json
-    tags:
-      - Content
-      - WordPress
-      - REST
-      - JSON
-      - Research
-    properties:
-      - type: OpenAPI
-        url: openapi/advantage-solutions-youradv-content-openapi.yml
-      - type: Overlay
-        url: overlays/advantage-solutions-youradv-overlay.yaml
-      - type: Documentation
-        url: https://developer.wordpress.org/rest-api/
-      - type: DataModel
-        url: data-model/advantage-solutions-data-model.yml
-  - aid: advantage-solutions:mrktblog-content
-    name: MRKT Blog Content API (WordPress REST)
-    description: >-
-      The publicly readable content API of MRKT, described by its own discovery
-      document as "MRKT | An Advantage Solutions Publication". mrktblog.com runs
-      WordPress on WP Engine behind Cloudflare and serves the standard REST API at
-      /wp-json/ with 178 advertised routes, returning posts, categories, tags and
-      media anonymously. It is the machine-readable counterpart to the RSS feed the
-      company already publishes, and carries the retail and consumer-goods
-      commentary Advantage Solutions produces for brands and retailers.
-    humanURL: https://mrktblog.com/
-    baseURL: https://mrktblog.com/wp-json
-    tags:
-      - Content
-      - WordPress
-      - REST
-      - Blog
-      - Retail
-    properties:
-      - type: OpenAPI
-        url: openapi/advantage-solutions-mrktblog-content-openapi.yml
-      - type: Overlay
-        url: overlays/advantage-solutions-mrktblog-overlay.yaml
-      - type: Documentation
-        url: https://developer.wordpress.org/rest-api/
-      - type: RSSFeed
-        url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-advantage360-category-api
+  name: Advantage Solutions Advantage360 Category API
+  description: >-
+    The advantage360-category API from Advantage Solutions — 2 operation(s) for advantage360-category.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - advantage360-category
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-advantage360-category-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-advantage360-reports-api
+  name: Advantage Solutions Advantage360 Reports API
+  description: >-
+    The advantage360-reports API from Advantage Solutions — 2 operation(s) for advantage360-reports.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - advantage360-reports
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-advantage360-reports-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-blog-author-api
+  name: Advantage Solutions Blog Author API
+  description: The blog-author API from Advantage Solutions — 2 operation(s) for blog-author.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - blog-author
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-blog-author-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-categories-api
+  name: Advantage Solutions Categories API
+  description: The categories API from Advantage Solutions — 2 operation(s) for categories.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - categories
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-categories-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-comments-api
+  name: Advantage Solutions Comments API
+  description: The comments API from Advantage Solutions — 2 operation(s) for comments.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - comments
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-comments-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-director-api
+  name: Advantage Solutions Director API
+  description: The director API from Advantage Solutions — 2 operation(s) for director.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - director
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-director-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-event-api
+  name: Advantage Solutions Event API
+  description: The event API from Advantage Solutions — 2 operation(s) for event.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - event
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-event-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-media-api
+  name: Advantage Solutions Media API
+  description: The media API from Advantage Solutions — 4 operation(s) for media.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - media
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-media-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-mrktblog-category-api
+  name: Advantage Solutions Mrktblog Category API
+  description: >-
+    The mrktblog-category API from Advantage Solutions — 2 operation(s) for mrktblog-category.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - mrktblog-category
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-mrktblog-category-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-mrktblog-posts-api
+  name: Advantage Solutions Mrktblog Posts API
+  description: The mrktblog-posts API from Advantage Solutions — 2 operation(s) for mrktblog-posts.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - mrktblog-posts
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-mrktblog-posts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-oembed-api
+  name: Advantage Solutions Oembed API
+  description: The oembed API from Advantage Solutions — 1 operation(s) for oembed.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - oembed
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-oembed-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-pages-api
+  name: Advantage Solutions Pages API
+  description: The pages API from Advantage Solutions — 2 operation(s) for pages.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - pages
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-pages-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-posts-api
+  name: Advantage Solutions Posts API
+  description: The posts API from Advantage Solutions — 2 operation(s) for posts.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - posts
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-posts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-review-api
+  name: Advantage Solutions Review API
+  description: The review API from Advantage Solutions — 2 operation(s) for review.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - review
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-review-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-search-api
+  name: Advantage Solutions Search API
+  description: The search API from Advantage Solutions — 1 operation(s) for search.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - search
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-solution-api
+  name: Advantage Solutions Solution API
+  description: The solution API from Advantage Solutions — 2 operation(s) for solution.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - solution
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-solution-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-statuses-api
+  name: Advantage Solutions Statuses API
+  description: The statuses API from Advantage Solutions — 2 operation(s) for statuses.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - statuses
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-statuses-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-tags-api
+  name: Advantage Solutions Tags API
+  description: The tags API from Advantage Solutions — 2 operation(s) for tags.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - tags
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-tags-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-taxonomies-api
+  name: Advantage Solutions Taxonomies API
+  description: The taxonomies API from Advantage Solutions — 2 operation(s) for taxonomies.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - taxonomies
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-taxonomies-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-team-member-api
+  name: Advantage Solutions Team Member API
+  description: The team-member API from Advantage Solutions — 2 operation(s) for team-member.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - team-member
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-team-member-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-types-api
+  name: Advantage Solutions Types API
+  description: The types API from Advantage Solutions — 2 operation(s) for types.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - types
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-types-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-users-api
+  name: Advantage Solutions Users API
+  description: The users API from Advantage Solutions — 6 operation(s) for users.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
 common:
+  - type: Overlay
+    url: overlays/advantage-solutions-youradv-overlay.yaml
+  - type: Overlay
+    url: overlays/advantage-solutions-mrktblog-overlay.yaml
   - type: AgenticAccess
     url: agentic-access/advantage-solutions-agentic-access.yml
   - type: DomainSecurity
