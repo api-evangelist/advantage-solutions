@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Advantage Solutions Statuses API
+  version: wp/v2
+  x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
+  x-refined-note:
+  - x-derived-from differs across the merged source definitions and was not carried
+  description: 'Operations tagged statuses across 2 of this provider''s published API definitions: advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://mrktblog.com/wp-json
+- url: https://youradv.com/wp-json
+tags:
+- name: statuses
+paths:
+  /wp/v2/statuses:
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2Statuses
+      summary: GET /wp/v2/statuses
+      description: GET on the WordPress REST route `/wp/v2/statuses` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - statuses
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+  /wp/v2/statuses/{status}:
+    parameters:
+    - name: status
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2StatusesBystatus
+      summary: GET /wp/v2/statuses/{status}
+      description: GET on the WordPress REST route `/wp/v2/statuses/(?P<status>[\w-]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - statuses
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+components:
+  schemas:
+    WPError:
+      type: object
+      description: The WordPress REST error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_no_route
+          - rest_forbidden
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+      required:
+      - code
+      - message
+      - data
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The discovery document advertises the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read operations on published content are anonymous.
+x-refined-from:
+- advantage-solutions-mrktblog-content-openapi.yml
+- advantage-solutions-youradv-content-openapi.yml

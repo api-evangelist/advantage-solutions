@@ -1,0 +1,152 @@
+openapi: 3.2.0
+info:
+  title: Advantage Solutions Search API
+  version: wp/v2
+  x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
+  x-refined-note:
+  - x-derived-from differs across the merged source definitions and was not carried
+  description: 'Operations tagged search across 2 of this provider''s published API definitions: advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://mrktblog.com/wp-json
+- url: https://youradv.com/wp-json
+tags:
+- name: search
+paths:
+  /wp/v2/search:
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2Search
+      summary: GET /wp/v2/search
+      description: GET on the WordPress REST route `/wp/v2/search` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - search
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - post
+          - term
+          - post-format
+          default: post
+        description: Limit results to items of an object type.
+      - name: subtype
+        in: query
+        required: false
+        schema:
+          type: array
+          default: any
+          items:
+            enum:
+            - post
+            - page
+            - category
+            - post_tag
+            - any
+            type: string
+        description: Limit results to items of one or more object subtypes.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Ensure result set excludes specific IDs.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to specific IDs.
+components:
+  schemas:
+    WPError:
+      type: object
+      description: The WordPress REST error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_no_route
+          - rest_forbidden
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+      required:
+      - code
+      - message
+      - data
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The discovery document advertises the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read operations on published content are anonymous.
+x-refined-from:
+- advantage-solutions-mrktblog-content-openapi.yml
+- advantage-solutions-youradv-content-openapi.yml

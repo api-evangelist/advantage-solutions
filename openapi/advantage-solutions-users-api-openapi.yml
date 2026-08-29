@@ -1,0 +1,953 @@
+openapi: 3.2.0
+info:
+  title: Advantage Solutions Users API
+  version: wp/v2
+  x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
+  x-refined-note:
+  - x-derived-from differs across the merged source definitions and was not carried
+  description: 'Operations tagged users across 2 of this provider''s published API definitions: advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://mrktblog.com/wp-json
+- url: https://youradv.com/wp-json
+tags:
+- name: users
+paths:
+  /wp/v2/users:
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2Users
+      summary: GET /wp/v2/users
+      description: GET on the WordPress REST route `/wp/v2/users` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Ensure result set excludes specific IDs.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to specific IDs.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Offset the result set by a specific number of items.
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+        description: Order sort attribute ascending or descending.
+      - name: orderby
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - include
+          - name
+          - registered_date
+          - slug
+          - include_slugs
+          - email
+          - url
+          default: name
+        description: Sort collection by user attribute.
+      - name: slug
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to users with one or more specific slugs.
+      - name: roles
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to users matching at least one specific role provided. Accepts csv list or single role.
+      - name: capabilities
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to users matching at least one specific capability provided. Accepts csv list or single capability.
+      - name: who
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - authors
+        description: Limit result set to users who are considered authors.
+      - name: has_published_posts
+        in: query
+        required: false
+        schema:
+          type:
+          - boolean
+          - array
+          items:
+            type: string
+            enum:
+              post: post
+              page: page
+              attachment: attachment
+              nav_menu_item: nav_menu_item
+              wp_block: wp_block
+              wp_template: wp_template
+              wp_template_part: wp_template_part
+              wp_global_styles: wp_global_styles
+              wp_navigation: wp_navigation
+              wp_font_family: wp_font_family
+              wp_font_face: wp_font_face
+        description: Limit result set to users who have published posts.
+      - name: search_columns
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            enum:
+            - email
+            - name
+            - id
+            - username
+            - slug
+            type: string
+        description: Array of column names to be searched.
+    post:
+      operationId: createWpV2Users
+      summary: POST /wp/v2/users
+      description: POST on the WordPress REST route `/wp/v2/users` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Login name for the user.
+                name:
+                  type: string
+                  description: Display name for the user.
+                first_name:
+                  type: string
+                  description: First name for the user.
+                last_name:
+                  type: string
+                  description: Last name for the user.
+                email:
+                  type: string
+                  format: email
+                  description: The email address for the user.
+                url:
+                  type: string
+                  format: uri
+                  description: URL of the user.
+                description:
+                  type: string
+                  description: Description of the user.
+                locale:
+                  type: string
+                  enum:
+                  - ''
+                  - en_US
+                  description: Locale for the user.
+                nickname:
+                  type: string
+                  description: The nickname for the user.
+                slug:
+                  type: string
+                  description: An alphanumeric identifier for the user.
+                roles:
+                  type: array
+                  items:
+                    type: string
+                  description: Roles assigned to the user.
+                password:
+                  type: string
+                  description: Password for the user (never included).
+                meta:
+                  type: object
+                  description: Meta fields.
+                simple_local_avatar:
+                  type: object
+                  description: The users simple local avatar
+              required:
+              - username
+              - email
+              - password
+      security:
+      - applicationPassword: []
+  /wp/v2/users/me:
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2UsersMe
+      summary: GET /wp/v2/users/me
+      description: GET on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+    post:
+      operationId: createWpV2UsersMe
+      summary: POST /wp/v2/users/me
+      description: POST on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Login name for the user.
+                name:
+                  type: string
+                  description: Display name for the user.
+                first_name:
+                  type: string
+                  description: First name for the user.
+                last_name:
+                  type: string
+                  description: Last name for the user.
+                email:
+                  type: string
+                  format: email
+                  description: The email address for the user.
+                url:
+                  type: string
+                  format: uri
+                  description: URL of the user.
+                description:
+                  type: string
+                  description: Description of the user.
+                locale:
+                  type: string
+                  enum:
+                  - ''
+                  - en_US
+                  description: Locale for the user.
+                nickname:
+                  type: string
+                  description: The nickname for the user.
+                slug:
+                  type: string
+                  description: An alphanumeric identifier for the user.
+                roles:
+                  type: array
+                  items:
+                    type: string
+                  description: Roles assigned to the user.
+                password:
+                  type: string
+                  description: Password for the user (never included).
+                meta:
+                  type: object
+                  description: Meta fields.
+                simple_local_avatar:
+                  type: object
+                  description: The users simple local avatar
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2UsersMe
+      summary: DELETE /wp/v2/users/me
+      description: DELETE on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: force
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Required to be true, as users do not support trashing.
+      - name: reassign
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: Reassign the deleted user's posts and links to this user ID.
+  /wp/v2/users/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2UsersByid
+      summary: GET /wp/v2/users/{id}
+      description: GET on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+    post:
+      operationId: createWpV2UsersByid
+      summary: POST /wp/v2/users/{id}
+      description: POST on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: Login name for the user.
+                name:
+                  type: string
+                  description: Display name for the user.
+                first_name:
+                  type: string
+                  description: First name for the user.
+                last_name:
+                  type: string
+                  description: Last name for the user.
+                email:
+                  type: string
+                  format: email
+                  description: The email address for the user.
+                url:
+                  type: string
+                  format: uri
+                  description: URL of the user.
+                description:
+                  type: string
+                  description: Description of the user.
+                locale:
+                  type: string
+                  enum:
+                  - ''
+                  - en_US
+                  description: Locale for the user.
+                nickname:
+                  type: string
+                  description: The nickname for the user.
+                slug:
+                  type: string
+                  description: An alphanumeric identifier for the user.
+                roles:
+                  type: array
+                  items:
+                    type: string
+                  description: Roles assigned to the user.
+                password:
+                  type: string
+                  description: Password for the user (never included).
+                meta:
+                  type: object
+                  description: Meta fields.
+                simple_local_avatar:
+                  type: object
+                  description: The users simple local avatar
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2UsersByid
+      summary: DELETE /wp/v2/users/{id}
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: force
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Required to be true, as users do not support trashing.
+      - name: reassign
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: Reassign the deleted user's posts and links to this user ID.
+  /wp/v2/users/{user_id})/application-passwords:
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2UsersByuseridApplicationpasswords
+      summary: GET /wp/v2/users/{user_id})/application-passwords
+      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+    post:
+      operationId: createWpV2UsersByuseridApplicationpasswords
+      summary: POST /wp/v2/users/{user_id})/application-passwords
+      description: POST on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app_id:
+                  type: string
+                  description: A UUID provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
+                name:
+                  type: string
+                  description: The name of the application password.
+              required:
+              - name
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2UsersByuseridApplicationpasswords
+      summary: DELETE /wp/v2/users/{user_id})/application-passwords
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+  /wp/v2/users/{user_id})/application-passwords/introspect:
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2UsersByuseridApplicationpasswordsIntrospect
+      summary: GET /wp/v2/users/{user_id})/application-passwords/introspect
+      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/introspect` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+  /wp/v2/users/{user_id})/application-passwords/{uuid}:
+    parameters:
+    - name: user_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    - name: uuid
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2UsersByuseridApplicationpasswordsByuuid
+      summary: GET /wp/v2/users/{user_id})/application-passwords/{uuid}
+      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+    post:
+      operationId: createWpV2UsersByuseridApplicationpasswordsByuuid
+      summary: POST /wp/v2/users/{user_id})/application-passwords/{uuid}
+      description: POST on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                app_id:
+                  type: string
+                  description: A UUID provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
+                name:
+                  type: string
+                  description: The name of the application password.
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2UsersByuseridApplicationpasswordsByuuid
+      summary: DELETE /wp/v2/users/{user_id})/application-passwords/{uuid}
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - users
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+components:
+  schemas:
+    WPError:
+      type: object
+      description: The WordPress REST error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_no_route
+          - rest_forbidden
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+      required:
+      - code
+      - message
+      - data
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The discovery document advertises the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read operations on published content are anonymous.
+x-refined-from:
+- advantage-solutions-mrktblog-content-openapi.yml
+- advantage-solutions-youradv-content-openapi.yml

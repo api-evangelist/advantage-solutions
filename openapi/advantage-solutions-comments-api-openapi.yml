@@ -1,0 +1,495 @@
+openapi: 3.2.0
+info:
+  title: MRKT Blog Content API (WordPress REST) Comments API
+  version: wp/v2
+  description: Publicly readable content API of MRKT (mrktblog.com), described by its own discovery document as 'MRKT | An Advantage Solutions Publication'. Derived from the WordPress REST route-discovery document the site serves at /wp-json/. Read operations on published posts, categories, tags and media are anonymous and were verified live; write operations require WordPress Application Passwords. This is the CMS API of a publication site, not a commercial product API.
+  contact:
+    name: Advantage Solutions
+    url: https://mrktblog.com/contact/
+  x-derived-from: https://mrktblog.com/wp-json/
+  x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
+servers:
+- url: https://mrktblog.com/wp-json
+tags:
+- name: comments
+paths:
+  /wp/v2/comments:
+    get:
+      operationId: getWpV2Comments
+      summary: GET /wp/v2/comments
+      description: GET on the WordPress REST route `/wp/v2/comments` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - comments
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: after
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Limit response to comments published after a given ISO8601 compliant date.
+      - name: author
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Limit result set to comments assigned to specific user IDs. Requires authorization.
+      - name: author_exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: integer
+        description: Ensure result set excludes comments assigned to specific user IDs. Requires authorization.
+      - name: author_email
+        in: query
+        required: false
+        schema:
+          type: string
+          default: null
+          format: email
+        description: Limit result set to that from a specific author email. Requires authorization.
+      - name: before
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Limit response to comments published before a given ISO8601 compliant date.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Ensure result set excludes specific IDs.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to specific IDs.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Offset the result set by a specific number of items.
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: desc
+        description: Order sort attribute ascending or descending.
+      - name: orderby
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - date
+          - date_gmt
+          - id
+          - include
+          - post
+          - parent
+          - type
+          default: date_gmt
+        description: Sort collection by comment attribute.
+      - name: parent
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to comments of specific parent IDs.
+      - name: parent_exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Ensure result set excludes specific parent IDs.
+      - name: post
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to comments assigned to specific post IDs.
+      - name: status
+        in: query
+        required: false
+        schema:
+          type: string
+          default: approve
+        description: Limit result set to comments assigned a specific status. Requires authorization.
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+          default: comment
+        description: Limit result set to comments assigned a specific type. Requires authorization.
+      - name: password
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The password for the post if it is password protected.
+    post:
+      operationId: createWpV2Comments
+      summary: POST /wp/v2/comments
+      description: POST on the WordPress REST route `/wp/v2/comments` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - comments
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                author:
+                  type: integer
+                  description: The ID of the user object, if author was a user.
+                author_email:
+                  type: string
+                  format: email
+                  description: Email address for the comment author.
+                author_ip:
+                  type: string
+                  format: ip
+                  description: IP address for the comment author.
+                author_name:
+                  type: string
+                  description: Display name for the comment author.
+                author_url:
+                  type: string
+                  format: uri
+                  description: URL for the comment author.
+                author_user_agent:
+                  type: string
+                  description: User agent for the comment author.
+                content:
+                  type: object
+                  description: The content for the comment.
+                date:
+                  type: string
+                  format: date-time
+                  description: The date the comment was published, in the site's timezone.
+                date_gmt:
+                  type: string
+                  format: date-time
+                  description: The date the comment was published, as GMT.
+                parent:
+                  type: integer
+                  default: 0
+                  description: The ID for the parent of the comment.
+                post:
+                  type: integer
+                  default: 0
+                  description: The ID of the associated post object.
+                status:
+                  type: string
+                  description: State of the comment.
+                meta:
+                  type: object
+                  description: Meta fields.
+      security:
+      - applicationPassword: []
+  /wp/v2/comments/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    get:
+      operationId: getWpV2CommentsByid
+      summary: GET /wp/v2/comments/{id}
+      description: GET on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - comments
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: password
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The password for the parent post of the comment (if the post is password protected).
+    post:
+      operationId: createWpV2CommentsByid
+      summary: POST /wp/v2/comments/{id}
+      description: POST on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - comments
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                author:
+                  type: integer
+                  description: The ID of the user object, if author was a user.
+                author_email:
+                  type: string
+                  format: email
+                  description: Email address for the comment author.
+                author_ip:
+                  type: string
+                  format: ip
+                  description: IP address for the comment author.
+                author_name:
+                  type: string
+                  description: Display name for the comment author.
+                author_url:
+                  type: string
+                  format: uri
+                  description: URL for the comment author.
+                author_user_agent:
+                  type: string
+                  description: User agent for the comment author.
+                content:
+                  type: object
+                  description: The content for the comment.
+                date:
+                  type: string
+                  format: date-time
+                  description: The date the comment was published, in the site's timezone.
+                date_gmt:
+                  type: string
+                  format: date-time
+                  description: The date the comment was published, as GMT.
+                parent:
+                  type: integer
+                  description: The ID for the parent of the comment.
+                post:
+                  type: integer
+                  description: The ID of the associated post object.
+                status:
+                  type: string
+                  description: State of the comment.
+                meta:
+                  type: object
+                  description: Meta fields.
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2CommentsByid
+      summary: DELETE /wp/v2/comments/{id}
+      description: DELETE on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - comments
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: force
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to bypass Trash and force deletion.
+      - name: password
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The password for the parent post of the comment (if the post is password protected).
+components:
+  schemas:
+    WPError:
+      type: object
+      description: The WordPress REST error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_no_route
+          - rest_forbidden
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+      required:
+      - code
+      - message
+      - data
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The discovery document advertises the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read operations on published content are anonymous.

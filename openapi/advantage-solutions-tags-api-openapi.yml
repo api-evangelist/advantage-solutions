@@ -1,0 +1,363 @@
+openapi: 3.2.0
+info:
+  title: Advantage Solutions Tags API
+  version: wp/v2
+  x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
+  x-refined-note:
+  - x-derived-from differs across the merged source definitions and was not carried
+  description: 'Operations tagged tags across 2 of this provider''s published API definitions: advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://mrktblog.com/wp-json
+- url: https://youradv.com/wp-json
+tags:
+- name: tags
+paths:
+  /wp/v2/tags:
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2Tags
+      summary: GET /wp/v2/tags
+      description: GET on the WordPress REST route `/wp/v2/tags` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - tags
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 1
+          minimum: 1
+        description: Current page of the collection.
+      - name: per_page
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 10
+          minimum: 1
+          maximum: 100
+        description: Maximum number of items to be returned in result set.
+      - name: search
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Limit results to those matching a string.
+      - name: exclude
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Ensure result set excludes specific IDs.
+      - name: include
+        in: query
+        required: false
+        schema:
+          type: array
+          default: []
+          items:
+            type: integer
+        description: Limit result set to specific IDs.
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: Offset the result set by a specific number of items.
+      - name: order
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+          default: asc
+        description: Order sort attribute ascending or descending.
+      - name: orderby
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - id
+          - include
+          - name
+          - slug
+          - include_slugs
+          - term_group
+          - description
+          - count
+          default: name
+        description: Sort collection by term attribute.
+      - name: hide_empty
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to hide terms not assigned to any posts.
+      - name: post
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: null
+        description: Limit result set to terms assigned to a specific post.
+      - name: slug
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Limit result set to terms with one or more specific slugs.
+    post:
+      operationId: createWpV2Tags
+      summary: POST /wp/v2/tags
+      description: POST on the WordPress REST route `/wp/v2/tags` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - tags
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: HTML description of the term.
+                name:
+                  type: string
+                  description: HTML title for the term.
+                slug:
+                  type: string
+                  description: An alphanumeric identifier for the term unique to its type.
+                meta:
+                  type: object
+                  description: Meta fields.
+              required:
+              - name
+      security:
+      - applicationPassword: []
+  /wp/v2/tags/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
+    get:
+      operationId: getWpV2TagsByid
+      summary: GET /wp/v2/tags/{id}
+      description: GET on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - tags
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: context
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - view
+          - embed
+          - edit
+          default: view
+        description: Scope under which the request is made; determines fields present in response.
+    post:
+      operationId: createWpV2TagsByid
+      summary: POST /wp/v2/tags/{id}
+      description: POST on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - tags
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                description:
+                  type: string
+                  description: HTML description of the term.
+                name:
+                  type: string
+                  description: HTML title for the term.
+                slug:
+                  type: string
+                  description: An alphanumeric identifier for the term unique to its type.
+                meta:
+                  type: object
+                  description: Meta fields.
+      security:
+      - applicationPassword: []
+    delete:
+      operationId: deleteWpV2TagsByid
+      summary: DELETE /wp/v2/tags/{id}
+      description: DELETE on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      tags:
+      - tags
+      responses:
+        '200':
+          description: Successful response.
+          content:
+            application/json:
+              schema:
+                type:
+                - object
+                - array
+        '401':
+          description: Authentication required or insufficient capability.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+        '404':
+          description: No route or resource matched.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WPError'
+      parameters:
+      - name: force
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Required to be true, as terms do not support trashing.
+components:
+  schemas:
+    WPError:
+      type: object
+      description: The WordPress REST error envelope, observed live on this host.
+      properties:
+        code:
+          type: string
+          examples:
+          - rest_no_route
+          - rest_forbidden
+        message:
+          type: string
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+      required:
+      - code
+      - message
+      - data
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords (HTTP Basic). The discovery document advertises the authorization endpoint at https://mrktblog.com/wp-admin/authorize-application.php. Read operations on published content are anonymous.
+x-refined-from:
+- advantage-solutions-mrktblog-content-openapi.yml
+- advantage-solutions-youradv-content-openapi.yml
