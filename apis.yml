@@ -407,6 +407,9 @@ apis:
   - type: RSSFeed
     url: https://mrktblog.com/feed/
 common:
+  - type: CapabilityMap
+    url: capabilities/advantage-solutions-capability-edges.yml
+    name: Advantage Solutions Business Capability Map
   - type: Overlay
     url: overlays/advantage-solutions-youradv-overlay.yaml
   - type: Overlay
