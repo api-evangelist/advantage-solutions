@@ -107,6 +107,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Categories
+  tags_raw:
   - categories
   properties:
   - type: OpenAPI
@@ -123,6 +125,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Comments
+  tags_raw:
   - comments
   properties:
   - type: OpenAPI
@@ -155,6 +159,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Event
+  tags_raw:
   - event
   properties:
   - type: OpenAPI
@@ -171,6 +177,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Media
+  tags_raw:
   - media
   properties:
   - type: OpenAPI
@@ -220,6 +228,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - oEmbed
+  tags_raw:
   - oembed
   properties:
   - type: OpenAPI
@@ -236,6 +246,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Pages
+  tags_raw:
   - pages
   properties:
   - type: OpenAPI
@@ -252,6 +264,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Posts
+  tags_raw:
   - posts
   properties:
   - type: OpenAPI
@@ -268,6 +282,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Review
+  tags_raw:
   - review
   properties:
   - type: OpenAPI
@@ -284,6 +300,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Search
+  tags_raw:
   - search
   properties:
   - type: OpenAPI
@@ -300,6 +318,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Solution
+  tags_raw:
   - solution
   properties:
   - type: OpenAPI
@@ -316,6 +336,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Status
+  tags_raw:
   - statuses
   properties:
   - type: OpenAPI
@@ -332,6 +354,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Tags
+  tags_raw:
   - tags
   properties:
   - type: OpenAPI
@@ -364,6 +388,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Team Member
+  tags_raw:
   - team-member
   properties:
   - type: OpenAPI
@@ -380,6 +406,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Types
+  tags_raw:
   - types
   properties:
   - type: OpenAPI
@@ -396,6 +424,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - User
+  tags_raw:
   - users
   properties:
   - type: OpenAPI
