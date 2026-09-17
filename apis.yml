@@ -224,24 +224,6 @@ apis:
     url: data-model/advantage-solutions-data-model.yml
   - type: RSSFeed
     url: https://mrktblog.com/feed/
-- aid: advantage-solutions:advantage-solutions-oembed-api
-  name: Advantage Solutions Oembed API
-  description: The oembed API from Advantage Solutions — 1 operation(s) for oembed.
-  humanURL: https://youradv.com/
-  baseURL: https://youradv.com/wp-json
-  tags:
-  - oEmbed
-  tags_raw:
-  - oembed
-  properties:
-  - type: OpenAPI
-    url: openapi/advantage-solutions-oembed-api-openapi.yml
-  - type: Documentation
-    url: https://developer.wordpress.org/rest-api/
-  - type: DataModel
-    url: data-model/advantage-solutions-data-model.yml
-  - type: RSSFeed
-    url: https://mrktblog.com/feed/
 - aid: advantage-solutions:advantage-solutions-pages-api
   name: Advantage Solutions Pages API
   description: The pages API from Advantage Solutions — 2 operation(s) for pages.
@@ -432,6 +414,22 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/advantage-solutions-users-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordpress.org/rest-api/
+  - type: DataModel
+    url: data-model/advantage-solutions-data-model.yml
+  - type: RSSFeed
+    url: https://mrktblog.com/feed/
+- aid: advantage-solutions:advantage-solutions-o-embed-api
+  name: Advantage Solutions o Embed API
+  description: The o Embed API from Advantage Solutions — 1 operation(s) for o embed.
+  humanURL: https://youradv.com/
+  baseURL: https://youradv.com/wp-json
+  tags:
+  - o Embed
+  properties:
+  - type: OpenAPI
+    url: openapi/advantage-solutions-o-embed-api-openapi.yml
   - type: Documentation
     url: https://developer.wordpress.org/rest-api/
   - type: DataModel
