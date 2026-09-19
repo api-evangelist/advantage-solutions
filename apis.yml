@@ -145,6 +145,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - Director
+  tags_raw:
   - director
   properties:
   - type: OpenAPI
@@ -426,6 +428,8 @@ apis:
   humanURL: https://youradv.com/
   baseURL: https://youradv.com/wp-json
   tags:
+  - oEmbed
+  tags_raw:
   - o Embed
   properties:
   - type: OpenAPI
