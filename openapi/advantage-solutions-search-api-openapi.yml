@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: search
+- name: Search
 paths:
   /wp/v2/search:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Search
       summary: GET /wp/v2/search
       description: GET on the WordPress REST route `/wp/v2/search` as advertised by mrktblog.com/wp-json/.
       tags:
-      - search
+      - Search
       responses:
         '200':
           description: Successful response.
@@ -120,6 +118,8 @@ paths:
           items:
             type: integer
         description: Limit result set to specific IDs.
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

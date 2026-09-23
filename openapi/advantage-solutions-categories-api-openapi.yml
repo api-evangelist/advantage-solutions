@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: categories
+- name: Categories
 paths:
   /wp/v2/categories:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Categories
       summary: GET /wp/v2/categories
       description: GET on the WordPress REST route `/wp/v2/categories` as advertised by mrktblog.com/wp-json/.
       tags:
-      - categories
+      - Categories
       responses:
         '200':
           description: Successful response.
@@ -154,7 +152,7 @@ paths:
       summary: POST /wp/v2/categories
       description: POST on the WordPress REST route `/wp/v2/categories` as advertised by mrktblog.com/wp-json/.
       tags:
-      - categories
+      - Categories
       responses:
         '200':
           description: Successful response.
@@ -202,6 +200,8 @@ paths:
               - name
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/categories/{id}:
     parameters:
     - name: id
@@ -210,14 +210,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2CategoriesByid
       summary: GET /wp/v2/categories/{id}
-      description: GET on the WordPress REST route `/wp/v2/categories/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/categories/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - categories
+      - Categories
       responses:
         '200':
           description: Successful response.
@@ -254,9 +252,9 @@ paths:
     post:
       operationId: createWpV2CategoriesByid
       summary: POST /wp/v2/categories/{id}
-      description: POST on the WordPress REST route `/wp/v2/categories/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/categories/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - categories
+      - Categories
       responses:
         '200':
           description: Successful response.
@@ -305,9 +303,9 @@ paths:
     delete:
       operationId: deleteWpV2CategoriesByid
       summary: DELETE /wp/v2/categories/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/categories/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/categories/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - categories
+      - Categories
       responses:
         '200':
           description: Successful response.
@@ -337,6 +335,8 @@ paths:
           type: boolean
           default: false
         description: Required to be true, as terms do not support trashing.
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

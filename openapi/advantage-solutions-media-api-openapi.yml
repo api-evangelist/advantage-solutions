@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: media
+- name: Media
 paths:
   /wp/v2/media:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Media
       summary: GET /wp/v2/media
       description: GET on the WordPress REST route `/wp/v2/media` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -264,7 +262,7 @@ paths:
       summary: POST /wp/v2/media
       description: POST on the WordPress REST route `/wp/v2/media` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -355,6 +353,8 @@ paths:
                   description: The ID for the associated post of the attachment.
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}:
     parameters:
     - name: id
@@ -363,14 +363,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2MediaByid
       summary: GET /wp/v2/media/{id}
-      description: GET on the WordPress REST route `/wp/v2/media/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/media/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -407,9 +405,9 @@ paths:
     post:
       operationId: createWpV2MediaByid
       summary: POST /wp/v2/media/{id}
-      description: POST on the WordPress REST route `/wp/v2/media/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/media/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -503,9 +501,9 @@ paths:
     delete:
       operationId: deleteWpV2MediaByid
       summary: DELETE /wp/v2/media/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/media/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/media/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -535,6 +533,8 @@ paths:
           type: boolean
           default: false
         description: Whether to bypass Trash and force deletion.
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}/edit:
     parameters:
     - name: id
@@ -543,14 +543,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     post:
       operationId: createWpV2MediaByidEdit
       summary: POST /wp/v2/media/{id}/edit
-      description: POST on the WordPress REST route `/wp/v2/media/(?P<id>[\d]+)/edit` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/media/(?P[\d]+)/edit` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -707,6 +705,8 @@ paths:
               - src
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}/post-process:
     parameters:
     - name: id
@@ -715,14 +715,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     post:
       operationId: createWpV2MediaByidPostprocess
       summary: POST /wp/v2/media/{id}/post-process
-      description: POST on the WordPress REST route `/wp/v2/media/(?P<id>[\d]+)/post-process` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/media/(?P[\d]+)/post-process` as advertised by mrktblog.com/wp-json/.
       tags:
-      - media
+      - Media
       responses:
         '200':
           description: Successful response.
@@ -759,6 +757,8 @@ paths:
               - action
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

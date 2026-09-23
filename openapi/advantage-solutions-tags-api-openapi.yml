@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: tags
+- name: Tags
 paths:
   /wp/v2/tags:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Tags
       summary: GET /wp/v2/tags
       description: GET on the WordPress REST route `/wp/v2/tags` as advertised by mrktblog.com/wp-json/.
       tags:
-      - tags
+      - Tags
       responses:
         '200':
           description: Successful response.
@@ -154,7 +152,7 @@ paths:
       summary: POST /wp/v2/tags
       description: POST on the WordPress REST route `/wp/v2/tags` as advertised by mrktblog.com/wp-json/.
       tags:
-      - tags
+      - Tags
       responses:
         '200':
           description: Successful response.
@@ -199,6 +197,8 @@ paths:
               - name
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/tags/{id}:
     parameters:
     - name: id
@@ -207,14 +207,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2TagsByid
       summary: GET /wp/v2/tags/{id}
-      description: GET on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/tags/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - tags
+      - Tags
       responses:
         '200':
           description: Successful response.
@@ -251,9 +249,9 @@ paths:
     post:
       operationId: createWpV2TagsByid
       summary: POST /wp/v2/tags/{id}
-      description: POST on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/tags/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - tags
+      - Tags
       responses:
         '200':
           description: Successful response.
@@ -299,9 +297,9 @@ paths:
     delete:
       operationId: deleteWpV2TagsByid
       summary: DELETE /wp/v2/tags/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/tags/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/tags/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - tags
+      - Tags
       responses:
         '200':
           description: Successful response.
@@ -331,6 +329,8 @@ paths:
           type: boolean
           default: false
         description: Required to be true, as terms do not support trashing.
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: posts
+- name: Posts
 paths:
   /wp/v2/posts:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Posts
       summary: GET /wp/v2/posts
       description: GET on the WordPress REST route `/wp/v2/posts` as advertised by mrktblog.com/wp-json/.
       tags:
-      - posts
+      - Posts
       responses:
         '200':
           description: Successful response.
@@ -307,7 +305,7 @@ paths:
       summary: POST /wp/v2/posts
       description: POST on the WordPress REST route `/wp/v2/posts` as advertised by mrktblog.com/wp-json/.
       tags:
-      - posts
+      - Posts
       responses:
         '200':
           description: Successful response.
@@ -422,6 +420,8 @@ paths:
                   description: The terms assigned to the post in the post_tag taxonomy.
       security:
       - applicationPassword: []
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/posts/{id}:
     parameters:
     - name: id
@@ -430,14 +430,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2PostsByid
       summary: GET /wp/v2/posts/{id}
-      description: GET on the WordPress REST route `/wp/v2/posts/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/posts/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - posts
+      - Posts
       responses:
         '200':
           description: Successful response.
@@ -486,9 +484,9 @@ paths:
     post:
       operationId: createWpV2PostsByid
       summary: POST /wp/v2/posts/{id}
-      description: POST on the WordPress REST route `/wp/v2/posts/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/posts/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - posts
+      - Posts
       responses:
         '200':
           description: Successful response.
@@ -606,9 +604,9 @@ paths:
     delete:
       operationId: deleteWpV2PostsByid
       summary: DELETE /wp/v2/posts/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/posts/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/posts/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - posts
+      - Posts
       responses:
         '200':
           description: Successful response.
@@ -638,6 +636,8 @@ paths:
           type: boolean
           default: false
         description: Whether to bypass Trash and force deletion.
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Advantage Solutions Corporate Content API (WordPress REST) Mrktblog Category API
+  title: Advantage Solutions Corporate Content API (WordPress REST)…
   version: wp/v2
-  description: Publicly readable content API of the Advantage Solutions corporate site (youradv.com), derived from the WordPress REST route-discovery document the site serves at /wp-json/. Covers the company's Advantage360 research reports, MRKT blog posts, solutions, events, team members, directors and reviews, plus the standard WordPress posts/pages/media/taxonomy collections. Read operations on published content are anonymous and were verified live; write operations require WordPress Application Passwords. This is the CMS API of a marketing site, not a commercial product API - Advantage Solutions publishes no developer program.
+  description: Publicly readable content API of the Advantage Solutions corporate site (youradv.com), derived from the WordPress REST route-discovery document the site serves at /wp-json/.
   contact:
     name: Advantage Solutions
     url: https://youradv.com/contact/
@@ -212,7 +212,7 @@ paths:
     get:
       operationId: getWpV2MrktblogcategoryByid
       summary: GET /wp/v2/mrktblog-category/{id}
-      description: GET on the WordPress REST route `/wp/v2/mrktblog-category/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/mrktblog-category/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
       - mrktblog-category
       responses:
@@ -251,7 +251,7 @@ paths:
     post:
       operationId: createWpV2MrktblogcategoryByid
       summary: POST /wp/v2/mrktblog-category/{id}
-      description: POST on the WordPress REST route `/wp/v2/mrktblog-category/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/mrktblog-category/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
       - mrktblog-category
       responses:
@@ -302,7 +302,7 @@ paths:
     delete:
       operationId: deleteWpV2MrktblogcategoryByid
       summary: DELETE /wp/v2/mrktblog-category/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/mrktblog-category/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/mrktblog-category/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
       - mrktblog-category
       responses:

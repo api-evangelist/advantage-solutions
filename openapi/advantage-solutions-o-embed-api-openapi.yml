@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: oembed
+- name: o Embed
 paths:
   /oembed/1.0/embed:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getOembed10Embed
       summary: GET /oembed/1.0/embed
       description: GET on the WordPress REST route `/oembed/1.0/embed` as advertised by mrktblog.com/wp-json/.
       tags:
-      - oembed
+      - o Embed
       responses:
         '200':
           description: Successful response.
@@ -62,6 +60,8 @@ paths:
         schema:
           type: string
           default: 600
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

@@ -11,7 +11,7 @@ info:
 servers:
 - url: https://mrktblog.com/wp-json
 tags:
-- name: comments
+- name: Comments
 paths:
   /wp/v2/comments:
     get:
@@ -19,7 +19,7 @@ paths:
       summary: GET /wp/v2/comments
       description: GET on the WordPress REST route `/wp/v2/comments` as advertised by mrktblog.com/wp-json/.
       tags:
-      - comments
+      - Comments
       responses:
         '200':
           description: Successful response.
@@ -215,7 +215,7 @@ paths:
       summary: POST /wp/v2/comments
       description: POST on the WordPress REST route `/wp/v2/comments` as advertised by mrktblog.com/wp-json/.
       tags:
-      - comments
+      - Comments
       responses:
         '200':
           description: Successful response.
@@ -303,9 +303,9 @@ paths:
     get:
       operationId: getWpV2CommentsByid
       summary: GET /wp/v2/comments/{id}
-      description: GET on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/comments/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - comments
+      - Comments
       responses:
         '200':
           description: Successful response.
@@ -348,9 +348,9 @@ paths:
     post:
       operationId: createWpV2CommentsByid
       summary: POST /wp/v2/comments/{id}
-      description: POST on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/comments/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - comments
+      - Comments
       responses:
         '200':
           description: Successful response.
@@ -428,9 +428,9 @@ paths:
     delete:
       operationId: deleteWpV2CommentsByid
       summary: DELETE /wp/v2/comments/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/comments/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/comments/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - comments
+      - Comments
       responses:
         '200':
           description: Successful response.

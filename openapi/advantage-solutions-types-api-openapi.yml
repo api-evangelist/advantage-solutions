@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: types
+- name: Types
 paths:
   /wp/v2/types:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Types
       summary: GET /wp/v2/types
       description: GET on the WordPress REST route `/wp/v2/types` as advertised by mrktblog.com/wp-json/.
       tags:
-      - types
+      - Types
       responses:
         '200':
           description: Successful response.
@@ -54,6 +52,8 @@ paths:
           - edit
           default: view
         description: Scope under which the request is made; determines fields present in response.
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/types/{type}:
     parameters:
     - name: type
@@ -62,14 +62,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2TypesBytype
       summary: GET /wp/v2/types/{type}
-      description: GET on the WordPress REST route `/wp/v2/types/(?P<type>[\w-]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/types/(?P[\w-]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - types
+      - Types
       responses:
         '200':
           description: Successful response.
@@ -103,6 +101,8 @@ paths:
           - edit
           default: view
         description: Scope under which the request is made; determines fields present in response.
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

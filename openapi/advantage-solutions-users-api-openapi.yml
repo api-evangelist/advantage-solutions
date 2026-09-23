@@ -10,17 +10,15 @@ servers:
 - url: https://mrktblog.com/wp-json
 - url: https://youradv.com/wp-json
 tags:
-- name: users
+- name: Users
 paths:
   /wp/v2/users:
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Users
       summary: GET /wp/v2/users
       description: GET on the WordPress REST route `/wp/v2/users` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -201,7 +199,7 @@ paths:
       summary: POST /wp/v2/users
       description: POST on the WordPress REST route `/wp/v2/users` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -285,15 +283,15 @@ paths:
               - password
       security:
       - applicationPassword: []
-  /wp/v2/users/me:
     servers:
     - url: https://mrktblog.com/wp-json
+  /wp/v2/users/me:
     get:
       operationId: getWpV2UsersMe
       summary: GET /wp/v2/users/me
       description: GET on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -332,7 +330,7 @@ paths:
       summary: POST /wp/v2/users/me
       description: POST on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -417,7 +415,7 @@ paths:
       summary: DELETE /wp/v2/users/me
       description: DELETE on the WordPress REST route `/wp/v2/users/me` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -453,6 +451,8 @@ paths:
         schema:
           type: integer
         description: Reassign the deleted user's posts and links to this user ID.
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{id}:
     parameters:
     - name: id
@@ -461,14 +461,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByid
       summary: GET /wp/v2/users/{id}
-      description: GET on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/users/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -505,9 +503,9 @@ paths:
     post:
       operationId: createWpV2UsersByid
       summary: POST /wp/v2/users/{id}
-      description: POST on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/users/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -590,9 +588,9 @@ paths:
     delete:
       operationId: deleteWpV2UsersByid
       summary: DELETE /wp/v2/users/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<id>[\d]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P[\d]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -628,6 +626,8 @@ paths:
         schema:
           type: integer
         description: Reassign the deleted user's posts and links to this user ID.
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords:
     parameters:
     - name: user_id
@@ -636,14 +636,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswords
       summary: GET /wp/v2/users/{user_id})/application-passwords
-      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -680,9 +678,9 @@ paths:
     post:
       operationId: createWpV2UsersByuseridApplicationpasswords
       summary: POST /wp/v2/users/{user_id})/application-passwords
-      description: POST on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -724,9 +722,9 @@ paths:
     delete:
       operationId: deleteWpV2UsersByuseridApplicationpasswords
       summary: DELETE /wp/v2/users/{user_id})/application-passwords
-      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -748,6 +746,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WPError'
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords/introspect:
     parameters:
     - name: user_id
@@ -756,14 +756,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswordsIntrospect
       summary: GET /wp/v2/users/{user_id})/application-passwords/introspect
-      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/introspect` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords/introspect` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -797,6 +795,8 @@ paths:
           - edit
           default: view
         description: Scope under which the request is made; determines fields present in response.
+    servers:
+    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords/{uuid}:
     parameters:
     - name: user_id
@@ -811,14 +811,12 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
-    servers:
-    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswordsByuuid
       summary: GET /wp/v2/users/{user_id})/application-passwords/{uuid}
-      description: GET on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords/(?P[\w\-]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -855,9 +853,9 @@ paths:
     post:
       operationId: createWpV2UsersByuseridApplicationpasswordsByuuid
       summary: POST /wp/v2/users/{user_id})/application-passwords/{uuid}
-      description: POST on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords/(?P[\w\-]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -897,9 +895,9 @@ paths:
     delete:
       operationId: deleteWpV2UsersByuseridApplicationpasswordsByuuid
       summary: DELETE /wp/v2/users/{user_id})/application-passwords/{uuid}
-      description: DELETE on the WordPress REST route `/wp/v2/users/(?P<user_id>(?:[\d]+|me))/application-passwords/(?P<uuid>[\w\-]+)` as advertised by mrktblog.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/users/(?P(?:[\d]+|me))/application-passwords/(?P[\w\-]+)` as advertised by mrktblog.com/wp-json/.
       tags:
-      - users
+      - Users
       responses:
         '200':
           description: Successful response.
@@ -921,6 +919,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WPError'
+    servers:
+    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

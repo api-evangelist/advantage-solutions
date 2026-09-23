@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Advantage Solutions Corporate Content API (WordPress REST) Team Member API
+  title: Advantage Solutions Corporate Content API (WordPress REST)…
   version: wp/v2
-  description: Publicly readable content API of the Advantage Solutions corporate site (youradv.com), derived from the WordPress REST route-discovery document the site serves at /wp-json/. Covers the company's Advantage360 research reports, MRKT blog posts, solutions, events, team members, directors and reviews, plus the standard WordPress posts/pages/media/taxonomy collections. Read operations on published content are anonymous and were verified live; write operations require WordPress Application Passwords. This is the CMS API of a marketing site, not a commercial product API - Advantage Solutions publishes no developer program.
+  description: Publicly readable content API of the Advantage Solutions corporate site (youradv.com), derived from the WordPress REST route-discovery document the site serves at /wp-json/.
   contact:
     name: Advantage Solutions
     url: https://youradv.com/contact/
@@ -11,7 +11,7 @@ info:
 servers:
 - url: https://youradv.com/wp-json
 tags:
-- name: team-member
+- name: Team Member
 paths:
   /wp/v2/team-member:
     get:
@@ -19,7 +19,7 @@ paths:
       summary: GET /wp/v2/team-member
       description: GET on the WordPress REST route `/wp/v2/team-member` as advertised by youradv.com/wp-json/.
       tags:
-      - team-member
+      - Team Member
       responses:
         '200':
           description: Successful response.
@@ -221,7 +221,7 @@ paths:
       summary: POST /wp/v2/team-member
       description: POST on the WordPress REST route `/wp/v2/team-member` as advertised by youradv.com/wp-json/.
       tags:
-      - team-member
+      - Team Member
       responses:
         '200':
           description: Successful response.
@@ -299,9 +299,9 @@ paths:
     get:
       operationId: getWpV2TeammemberByid
       summary: GET /wp/v2/team-member/{id}
-      description: GET on the WordPress REST route `/wp/v2/team-member/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: GET on the WordPress REST route `/wp/v2/team-member/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
-      - team-member
+      - Team Member
       responses:
         '200':
           description: Successful response.
@@ -344,9 +344,9 @@ paths:
     post:
       operationId: createWpV2TeammemberByid
       summary: POST /wp/v2/team-member/{id}
-      description: POST on the WordPress REST route `/wp/v2/team-member/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: POST on the WordPress REST route `/wp/v2/team-member/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
-      - team-member
+      - Team Member
       responses:
         '200':
           description: Successful response.
@@ -416,9 +416,9 @@ paths:
     delete:
       operationId: deleteWpV2TeammemberByid
       summary: DELETE /wp/v2/team-member/{id}
-      description: DELETE on the WordPress REST route `/wp/v2/team-member/(?P<id>[\d]+)` as advertised by youradv.com/wp-json/.
+      description: DELETE on the WordPress REST route `/wp/v2/team-member/(?P[\d]+)` as advertised by youradv.com/wp-json/.
       tags:
-      - team-member
+      - Team Member
       responses:
         '200':
           description: Successful response.
