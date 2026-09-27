@@ -1,14 +1,10 @@
 {
   "provider": "advantage-solutions",
   "sources": [
-    "_ae-authored/advantage-solutions-mrktblog-content-openapi.yml",
-    "_ae-authored/advantage-solutions-youradv-content-openapi.yml"
-  ],
-  "outputs": [
     "advantage-solutions-categories-api-openapi.yml",
     "advantage-solutions-comments-api-openapi.yml",
     "advantage-solutions-media-api-openapi.yml",
-    "advantage-solutions-oembed-api-openapi.yml",
+    "advantage-solutions-o-embed-api-openapi.yml",
     "advantage-solutions-pages-api-openapi.yml",
     "advantage-solutions-posts-api-openapi.yml",
     "advantage-solutions-search-api-openapi.yml",
@@ -16,63 +12,43 @@
     "advantage-solutions-tags-api-openapi.yml",
     "advantage-solutions-taxonomies-api-openapi.yml",
     "advantage-solutions-types-api-openapi.yml",
-    "advantage-solutions-users-api-openapi.yml",
-    "advantage-solutions-advantage360-category-api-openapi.yml",
-    "advantage-solutions-advantage360-reports-api-openapi.yml",
-    "advantage-solutions-blog-author-api-openapi.yml",
-    "advantage-solutions-director-api-openapi.yml",
-    "advantage-solutions-event-api-openapi.yml",
-    "advantage-solutions-mrktblog-category-api-openapi.yml",
-    "advantage-solutions-mrktblog-posts-api-openapi.yml",
-    "advantage-solutions-review-api-openapi.yml",
-    "advantage-solutions-solution-api-openapi.yml",
-    "advantage-solutions-team-member-api-openapi.yml"
+    "advantage-solutions-users-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
+  "outputs": [
+    "advantage-solutions-categories-api-openapi.yml",
+    "advantage-solutions-comments-api-openapi.yml",
+    "advantage-solutions-media-api-openapi.yml",
+    "advantage-solutions-o-embed-api-openapi.yml",
+    "advantage-solutions-pages-api-openapi.yml",
+    "advantage-solutions-posts-api-openapi.yml",
+    "advantage-solutions-search-api-openapi.yml",
+    "advantage-solutions-statuses-api-openapi.yml",
+    "advantage-solutions-tags-api-openapi.yml",
+    "advantage-solutions-taxonomies-api-openapi.yml",
+    "advantage-solutions-types-api-openapi.yml",
+    "advantage-solutions-users-api-openapi.yml"
   ],
+  "archived": [],
   "errors": [],
-  "warnings": [],
-  "notes": [
-    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "advantage-solutions-mrktblog-content-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "advantage-solutions-youradv-content-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "tag 'categories' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'media' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'oembed' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'pages' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'posts' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'search' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'statuses' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'tags' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'taxonomies' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'types' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "tag 'users' spans 2 source specs (advantage-solutions-mrktblog-content-openapi.yml, advantage-solutions-youradv-content-openapi.yml): per-path servers applied",
-    "superseded outputs removed: advantage-solutions-o-embed-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 22 total)"
+  "warnings": [
+    "advantage-solutions-categories-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /wp/v2/categories get, /wp/v2/categories post, /wp/v2/categories/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-comments-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /wp/v2/comments get, /wp/v2/comments post, /wp/v2/comments/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-media-api-openapi.yml: previously refined output kept for 7 operation(s) no archived document covers (e.g. /wp/v2/media get, /wp/v2/media post, /wp/v2/media/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-o-embed-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /oembed/1.0/embed get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-pages-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /wp/v2/pages get, /wp/v2/pages post, /wp/v2/pages/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-posts-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /wp/v2/posts get, /wp/v2/posts post, /wp/v2/posts/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-search-api-openapi.yml: previously refined output kept for 1 operation(s) no archived document covers (e.g. /wp/v2/search get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-statuses-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/statuses get, /wp/v2/statuses/{status} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-tags-api-openapi.yml: previously refined output kept for 5 operation(s) no archived document covers (e.g. /wp/v2/tags get, /wp/v2/tags post, /wp/v2/tags/{id} delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-taxonomies-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/taxonomies get, /wp/v2/taxonomies/{taxonomy} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-types-api-openapi.yml: previously refined output kept for 2 operation(s) no archived document covers (e.g. /wp/v2/types get, /wp/v2/types/{type} get); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth.",
+    "advantage-solutions-users-api-openapi.yml: previously refined output kept for 15 operation(s) no archived document covers (e.g. /wp/v2/users get, /wp/v2/users post, /wp/v2/users/me delete); its other 0 operation(s) came from the archive and were dropped from it. The archive is incomplete for this provider \u2014 re-harvest to restore _original/ as the full source of truth."
   ],
-  "skipped": [
-    "advantage-solutions-advantage360-category-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-advantage360-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-blog-author-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-categories-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-comments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-director-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-event-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-media-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-mrktblog-category-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-mrktblog-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-o-embed-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-pages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-posts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-review-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-solution-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-statuses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-taxonomies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-team-member-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-types-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "advantage-solutions-users-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "notes": [
+    "advantage-solutions-mrktblog-content-openapi.yml: WordPress site /wp-json spec, not split (roadmap#484)",
+    "advantage-solutions-youradv-content-openapi.yml: WordPress site /wp-json spec, not split (roadmap#484)",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apis.yml register: written (+1 apis, 2 total)"
+  ],
+  "skipped": []
 }

@@ -13,6 +13,8 @@ tags:
 - name: Taxonomies
 paths:
   /wp/v2/taxonomies:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Taxonomies
       summary: GET /wp/v2/taxonomies
@@ -58,8 +60,6 @@ paths:
         schema:
           type: string
         description: Limit results to taxonomies associated with a specific post type.
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/taxonomies/{taxonomy}:
     parameters:
     - name: taxonomy
@@ -68,6 +68,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2TaxonomiesBytaxonomy
       summary: GET /wp/v2/taxonomies/{taxonomy}
@@ -107,8 +109,6 @@ paths:
           - edit
           default: view
         description: Scope under which the request is made; determines fields present in response.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

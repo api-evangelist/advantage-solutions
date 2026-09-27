@@ -13,6 +13,8 @@ tags:
 - name: Tags
 paths:
   /wp/v2/tags:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Tags
       summary: GET /wp/v2/tags
@@ -197,8 +199,6 @@ paths:
               - name
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/tags/{id}:
     parameters:
     - name: id
@@ -207,6 +207,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2TagsByid
       summary: GET /wp/v2/tags/{id}
@@ -329,8 +331,6 @@ paths:
           type: boolean
           default: false
         description: Required to be true, as terms do not support trashing.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

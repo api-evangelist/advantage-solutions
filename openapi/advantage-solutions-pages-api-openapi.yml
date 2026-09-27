@@ -13,6 +13,8 @@ tags:
 - name: Pages
 paths:
   /wp/v2/pages:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Pages
       summary: GET /wp/v2/pages
@@ -358,8 +360,6 @@ paths:
                   description: The theme file to use to display the post.
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/pages/{id}:
     parameters:
     - name: id
@@ -368,6 +368,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2PagesByid
       summary: GET /wp/v2/pages/{id}
@@ -553,8 +555,6 @@ paths:
           type: boolean
           default: false
         description: Whether to bypass Trash and force deletion.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

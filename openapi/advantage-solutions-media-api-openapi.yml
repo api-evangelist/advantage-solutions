@@ -13,6 +13,8 @@ tags:
 - name: Media
 paths:
   /wp/v2/media:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Media
       summary: GET /wp/v2/media
@@ -353,8 +355,6 @@ paths:
                   description: The ID for the associated post of the attachment.
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}:
     parameters:
     - name: id
@@ -363,6 +363,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2MediaByid
       summary: GET /wp/v2/media/{id}
@@ -533,8 +535,6 @@ paths:
           type: boolean
           default: false
         description: Whether to bypass Trash and force deletion.
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}/edit:
     parameters:
     - name: id
@@ -543,6 +543,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     post:
       operationId: createWpV2MediaByidEdit
       summary: POST /wp/v2/media/{id}/edit
@@ -705,8 +707,6 @@ paths:
               - src
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/media/{id}/post-process:
     parameters:
     - name: id
@@ -715,6 +715,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     post:
       operationId: createWpV2MediaByidPostprocess
       summary: POST /wp/v2/media/{id}/post-process
@@ -757,8 +759,6 @@ paths:
               - action
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

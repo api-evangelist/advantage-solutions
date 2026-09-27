@@ -13,6 +13,8 @@ tags:
 - name: Users
 paths:
   /wp/v2/users:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Users
       summary: GET /wp/v2/users
@@ -283,9 +285,9 @@ paths:
               - password
       security:
       - applicationPassword: []
+  /wp/v2/users/me:
     servers:
     - url: https://mrktblog.com/wp-json
-  /wp/v2/users/me:
     get:
       operationId: getWpV2UsersMe
       summary: GET /wp/v2/users/me
@@ -451,8 +453,6 @@ paths:
         schema:
           type: integer
         description: Reassign the deleted user's posts and links to this user ID.
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{id}:
     parameters:
     - name: id
@@ -461,6 +461,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByid
       summary: GET /wp/v2/users/{id}
@@ -626,8 +628,6 @@ paths:
         schema:
           type: integer
         description: Reassign the deleted user's posts and links to this user ID.
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords:
     parameters:
     - name: user_id
@@ -636,6 +636,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswords
       summary: GET /wp/v2/users/{user_id})/application-passwords
@@ -746,8 +748,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WPError'
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords/introspect:
     parameters:
     - name: user_id
@@ -756,6 +756,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswordsIntrospect
       summary: GET /wp/v2/users/{user_id})/application-passwords/introspect
@@ -795,8 +797,6 @@ paths:
           - edit
           default: view
         description: Scope under which the request is made; determines fields present in response.
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/users/{user_id})/application-passwords/{uuid}:
     parameters:
     - name: user_id
@@ -811,6 +811,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2UsersByuseridApplicationpasswordsByuuid
       summary: GET /wp/v2/users/{user_id})/application-passwords/{uuid}
@@ -919,8 +921,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WPError'
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

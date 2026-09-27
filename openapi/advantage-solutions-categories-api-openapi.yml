@@ -13,6 +13,8 @@ tags:
 - name: Categories
 paths:
   /wp/v2/categories:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Categories
       summary: GET /wp/v2/categories
@@ -200,8 +202,6 @@ paths:
               - name
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/categories/{id}:
     parameters:
     - name: id
@@ -210,6 +210,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2CategoriesByid
       summary: GET /wp/v2/categories/{id}
@@ -335,8 +337,6 @@ paths:
           type: boolean
           default: false
         description: Required to be true, as terms do not support trashing.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

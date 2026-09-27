@@ -13,6 +13,8 @@ tags:
 - name: Search
 paths:
   /wp/v2/search:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Search
       summary: GET /wp/v2/search
@@ -118,8 +120,6 @@ paths:
           items:
             type: integer
         description: Limit result set to specific IDs.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Advantage Solutions Oembed API
+  title: Advantage Solutions Oembed o Embed API
   version: wp/v2
   x-derivation: Mechanically converted from the WordPress REST route-discovery document served at the URL in x-derived-from. Paths, methods, parameter names, types, enums, defaults and descriptions are copied verbatim from that document. Editor/administration and host-plugin namespaces (wp-block-editor, wp-site-health, wp-abilities, wpe/cache-plugin, wpe_sign_on_plugin, yoast, templates, widgets, plugins, themes, fonts, blocks, navigation, global-styles) are omitted; the discovery document remains the complete list.
   x-refined-note:
@@ -13,6 +13,8 @@ tags:
 - name: o Embed
 paths:
   /oembed/1.0/embed:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getOembed10Embed
       summary: GET /oembed/1.0/embed
@@ -60,8 +62,6 @@ paths:
         schema:
           type: string
           default: 600
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:

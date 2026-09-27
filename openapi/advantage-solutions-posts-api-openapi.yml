@@ -13,6 +13,8 @@ tags:
 - name: Posts
 paths:
   /wp/v2/posts:
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2Posts
       summary: GET /wp/v2/posts
@@ -420,8 +422,6 @@ paths:
                   description: The terms assigned to the post in the post_tag taxonomy.
       security:
       - applicationPassword: []
-    servers:
-    - url: https://mrktblog.com/wp-json
   /wp/v2/posts/{id}:
     parameters:
     - name: id
@@ -430,6 +430,8 @@ paths:
       schema:
         type: string
       description: Route parameter declared by the WordPress REST route regex.
+    servers:
+    - url: https://mrktblog.com/wp-json
     get:
       operationId: getWpV2PostsByid
       summary: GET /wp/v2/posts/{id}
@@ -636,8 +638,6 @@ paths:
           type: boolean
           default: false
         description: Whether to bypass Trash and force deletion.
-    servers:
-    - url: https://mrktblog.com/wp-json
 components:
   schemas:
     WPError:
