@@ -1,4 +1,4 @@
-# advantage-solutions
+# Advantage Solutions
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,4 +64,120 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Profile for Advantage Solutions in the API Evangelist network. Fortune 2024 (rank 717).
+Advantage Solutions is a leading provider of outsourced sales, marketing, merchandising, and business intelligence services to consumer goods manufacturers and retailers across North America. The company supports brand growth through retail execution, in-store demos, digital commerce enablement, and shopper insights, and publishes Advantage360 shopper and market research alongside the MRKT industry publication. Advantage Solutions does not operate a developer program, publish API documentation, or offer a commercial API product. The only machine-readable surface it serves is the standard WordPress REST API of its corporate site (youradv.com) and of MRKT (mrktblog.com), both of which return published content anonymously.
+
+**Areas:** Sales · Marketing · Merchandising · Consumer Goods · Retail · Shopper Insights · Content · Fortune 500
+
+## Advantage Solutions on APIs.io
+
+Everything profiled for Advantage Solutions is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/advantage-solutions/](https://apis.io/providers/advantage-solutions/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Advantage Solutions Website (WordPress REST)](https://apis.io/apis/advantage-solutions/youradv-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Advantage Solutions website at youradv.com: the route index of the site's content management system,…
+- [Advantage Solutions Website (WordPress REST)](https://apis.io/apis/advantage-solutions/mrktblog-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Advantage Solutions website at mrktblog.com: the route index of the site's content management system,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [advantage-solutions-content](https://apis.io/servers/advantage-solutions/advantage-solutions-content/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Advantage Solutions Agentic Access](https://apis.io/agentic-access/advantage-solutions/advantage-solutions-agentic-access/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Advantage Solutions Mrktblog Overlay](https://apis.io/overlays/advantage-solutions/advantage-solutions-mrktblog-overlay/)
+- [Advantage Solutions Youradv Overlay](https://apis.io/overlays/advantage-solutions/advantage-solutions-youradv-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Advantage Solutions Authentication](https://apis.io/security/advantage-solutions/advantage-solutions-authentication/)
+- [Advantage Solutions Domain Security](https://apis.io/security/advantage-solutions/advantage-solutions-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Advantage Solutions Plans Pricing](https://apis.io/plans/advantage-solutions/advantage-solutions-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Advantage Solutions Rate Limits](https://apis.io/rate-limits/advantage-solutions/advantage-solutions-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.advantagesolutions.net)
+- [Support](https://youradv.com/contact/)
+- [Blog](https://mrktblog.com/feed/)
+- [Terms of service](https://youradv.com/terms-of-use)
+- [Privacy policy](https://youradv.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 21.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 8.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 27.6 |
+
+**Agent readiness 8.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/advantage-solutions/](https://apis.io/providers/advantage-solutions/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Advantage Solutions: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/advantage-solutions/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
